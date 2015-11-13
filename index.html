@@ -5,9 +5,22 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
-<body>
-yooooooo
-  
+<body ng-controller="GlobalController">
+
+  <form name="submitForm" role="form" novalidate>
+    <input ng-model="memory.old" class="title-input form-control input-sm required" type="text" placeholder=""><br>
+    <input ng-model="memory.new" class="title-input form-control input-sm required" type="text" placeholder=""><br>
+    <input ng-model="memory.year" class="title-input form-control input-sm required" type="text" placeholder="">
+    <button ng-click="submitMemory(memory)" class="submit-post-btn submit btn btn-default" type="submit">Add Memory!</button>
+  </form>
+
+  <div ng-repeat="data in dataFromApi.data.rows">
+    I used to: {{data.old_days}}
+    Now I: {{data.these_days}}
+    Year: {{data.year}}
+  </div>
+
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
